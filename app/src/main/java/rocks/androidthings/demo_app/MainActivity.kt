@@ -7,7 +7,6 @@ import rocks.androidthings.driver.max72xx.MAX72XX
 import java.io.IOException
 
 class MainActivity : Activity() {
-
     private val TAG = MainActivity::class.java.simpleName
     private val NB_DEVICES = 1
 
@@ -26,7 +25,7 @@ class MainActivity : Activity() {
             }
 
             ledControl.setLed(0, 0, 1, true)
-            ledControl.setLed(0, 0, 2, true)
+            ledControl.setLed(0, 0, 2, false)
 
             ledControl.setLed(0, 1, 1, true)
             ledControl.setLed(0, 1, 2, true)
@@ -35,7 +34,7 @@ class MainActivity : Activity() {
 
             ledControl.setLed(0, 2, 1, true)
             ledControl.setLed(0, 2, 2, true)
-            ledControl.setLed(0, 2, 3, true)
+            ledControl.setLed(0, 2, 3, false)
 
             ledControl.setLed(0, 3, 1, true)
             ledControl.setLed(0, 3, 2, true)
