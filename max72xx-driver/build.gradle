@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release' // must be applied after your artifact generating plugin (eg. java / com.android.library)
 
 android {
     compileSdkVersion 26
@@ -44,12 +45,23 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.0.0-beta2'
     testImplementation 'junit:junit:4.12'
 
-    provided 'com.google.android.things:androidthings:0.4.1-devpreview'
+    testImplementation 'com.google.android.things:androidthings:0.4.1-devpreview'
+    compileOnly 'com.google.android.things:androidthings:0.4.1-devpreview'
 
-    testCompile 'junit:junit:4.12'
-    testCompile "org.mockito:mockito-core:2.1.0"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.mockito:mockito-core:2.8.9"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
 repositories {
     mavenCentral()
+}
+
+publish {
+    userOrg = 'mplacona'
+    groupId = 'rocks.androidthings'
+    artifactId = 'MAX7219-driver'
+    publishVersion = '0.0.1'
+    desc = 'Android Things driver for the MAX7219 and MAX7221 Led drivers'
+    website = 'https://github.com/mplacona/androidthings-MAX72XX-driver'
 }

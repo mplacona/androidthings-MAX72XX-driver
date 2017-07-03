@@ -8,11 +8,7 @@ import kotlin.experimental.inv
 import kotlin.experimental.or
 
 
-class MAX72XX
-
-@Throws(IOException::class)
-constructor(spiGpio: String, numDevices: Int) : AutoCloseable {
-
+class MAX72XX(numDevices: Int)  : AutoCloseable{
     //the opcodes for the MAX7221 and MAX7219
     private val OP_NOOP: Byte = 0
     private val OP_DIGIT0: Byte = 1
@@ -45,11 +41,32 @@ constructor(spiGpio: String, numDevices: Int) : AutoCloseable {
     /* The maximum number of devices we use */
     private var maxDevices: Int = numDevices
 
-    init {
+    @Throws(IOException::class)
+    constructor(device: SpiDevice, numDevices: Int) : this(numDevices){
+        spiDevice = device
+        spiDevice.setMode(SpiDevice.MODE0)
+        spiDevice.setFrequency(1_000_000)
+        spiDevice.setBitsPerWord(8)
+        spiDevice.setBitJustification(false)
+        if (numDevices < 1 || numDevices > 8) {
+            maxDevices = 8
+        }
+        for (i in 0..maxDevices - 1) {
+            spiTransfer(i, OP_DISPLAYTEST, 0)
+            setScanLimit(i, 7) // scanlimit: 8 LEDs
+            spiTransfer(i, OP_DECODEMODE, 0) // decoding： BCD
+            clearDisplay(i)
+            // we go into shutdown-mode on startup
+            shutdown(i, true)
+        }
+    }
+
+    @Throws(IOException::class)
+    constructor(spiGpio: String, numDevices: Int) : this(numDevices) {
         val pioService = PeripheralManagerService()
         spiDevice = pioService.openSpiDevice(spiGpio)
         spiDevice.setMode(SpiDevice.MODE0)
-        spiDevice.setFrequency(1000000)
+        spiDevice.setFrequency(1_000_000)
         spiDevice.setBitsPerWord(8)
         spiDevice.setBitJustification(false)
         if (numDevices < 1 || numDevices > 8) {
