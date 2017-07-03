@@ -8,7 +8,7 @@ import kotlin.experimental.inv
 import kotlin.experimental.or
 
 
-class LedControl
+class MAX72XX
 
 @Throws(IOException::class)
 constructor(spiGpio: String, numDevices: Int) : AutoCloseable {

@@ -3,7 +3,7 @@ package rocks.androidthings.demo_app
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
-import rocks.androidthings.driver.max72xx.LedControl
+import rocks.androidthings.driver.max72xx.MAX72XX
 import java.io.IOException
 
 class MainActivity : Activity() {
@@ -11,14 +11,14 @@ class MainActivity : Activity() {
     private val TAG = MainActivity::class.java.simpleName
     private val NB_DEVICES = 1
 
-    lateinit var ledControl: LedControl
+    lateinit var ledControl: MAX72XX
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         try {
-            ledControl = LedControl("SPI0.0", NB_DEVICES)
+            ledControl = MAX72XX("SPI0.0", NB_DEVICES)
             for (i in 0..ledControl.getDeviceCount() - 1) {
                 ledControl.setIntensity(i, 15)
                 ledControl.shutdown(i, false)
