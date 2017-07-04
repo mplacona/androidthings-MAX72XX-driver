@@ -20,4 +20,4 @@ test:
             timeout: 360
 
 post:
-    - cp -r /home/ubuntu/aroidthings-MAX72XX-driver/max72xx-driver/build/reports/tests/testDebugUnitTest $CIRCLE_TEST_REPORTS
+    - cp -r /home/ubuntu/androidthings-MAX72XX-driver/max72xx-driver/build/reports/tests/testDebugUnitTest $CIRCLE_TEST_REPORTS
