@@ -4,7 +4,7 @@
 
 general:
     artifacts:
-        - /home/ubuntu/androidthings-MAX72xx-driver/app/build/outputs/apk/
+        - /home/ubuntu/androidthings-MAX72XX-driver/app/build/outputs/apk/
 
 dependencies:
     pre:
