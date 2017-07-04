@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/mplacona/androidthings-MAX72XX-driver/tree/master.svg?style=shield&circle-token=a66a3161b18d4496384813831347fbbe942574b9)](https://circleci.com/gh/mplacona/androidthings-MAX72XX-driver/tree/master)
+
 # androidthings-MAX72XX-driver
 Android Things driver for the MAX7219 and MAX7221 Led drivers
 

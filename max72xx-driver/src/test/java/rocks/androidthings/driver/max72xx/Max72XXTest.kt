@@ -112,4 +112,10 @@ class Max72XXTest {
 
         verify(device).close()
     }
+
+    @Test
+    @Throws(Exception::class)
+    fun shouldFail() {
+        Assert.assertTrue(false)
+    }
 }
