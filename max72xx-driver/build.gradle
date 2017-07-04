@@ -54,13 +54,13 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 publish {
     userOrg = 'mplacona'
     groupId = 'rocks.androidthings'
-    artifactId = 'MAX7219-driver'
+    artifactId = 'max72xx-driver'
     publishVersion = '0.0.1'
     desc = 'Android Things driver for the MAX7219 and MAX7221 Led drivers'
     website = 'https://github.com/mplacona/androidthings-MAX72XX-driver'
