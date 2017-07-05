@@ -35,8 +35,8 @@ test:
         - (./gradlew assemble test):
             timeout: 360
 
-post:
-    # Collect the JUnit reports
-    - mkdir -p $CIRCLE_TEST_REPORTS/reports/junit
-    - find max72xx-driver/build/test-results/ -name "*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/reports/junit/ \;
+    post:
+        # Collect the JUnit reports
+        - mkdir -p $CIRCLE_TEST_REPORTS/reports/junit
+        - find max72xx-driver/build/test-results/ -name "*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/reports/junit/ \;
 
