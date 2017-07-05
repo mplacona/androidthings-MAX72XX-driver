@@ -40,3 +40,12 @@ test:
         - mkdir -p $CIRCLE_TEST_REPORTS/reports/junit
         - find max72xx-driver/build/test-results/ -name "*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/reports/junit/ \;
 
+        # Collect the Android Lint reports
+        - mkdir -p $CIRCLE_TEST_REPORTS/reports/lint
+        - find max72xx-driver/build/reports -name "lint*.html" -exec cp {} $CIRCLE_TEST_REPORTS/reports/lint/ \;
+        - find max72xx-driver/build/reports -name "lint*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/reports/lint/ \;
+
+        # Collect the HTML Test reports
+        - mkdir -p $CIRCLE_TEST_REPORTS/reports/junit/html
+        - cp max72xx-driver/build/reports/tests $CIRCLE_TEST_REPORTS/reports/junit/html
+
