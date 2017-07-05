@@ -47,5 +47,5 @@ test:
 
         # Collect the HTML Test reports
         - mkdir -p $CIRCLE_TEST_REPORTS/reports/junit/html
-        - cp max72xx-driver/build/reports/tests $CIRCLE_TEST_REPORTS/reports/junit/html
+        - cp /home/ubuntu/androidthings-MAX72XX-driver/max72xx-driver/build/reports/tests $CIRCLE_TEST_REPORTS/reports/junit/html
 
