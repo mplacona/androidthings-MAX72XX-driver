@@ -20,4 +20,7 @@ test:
             timeout: 360
 
 post:
-    - cp -r /home/ubuntu/androidthings-MAX72XX-driver/max72xx-driver/build/reports/tests/testDebugUnitTest $CIRCLE_TEST_REPORTS
+    # Collect the JUnit reports
+    - mkdir -p $CIRCLE_TEST_REPORTS/reports/junit
+    - find max72xx-driver/build/test-results/ -name "*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/reports/junit/ \;
+
