@@ -10,7 +10,7 @@ Download
 --------------
 ```
 dependencies {
-    compile 'rocks.androidthings:driver-max72xx:0.0.1'
+    compile 'rocks.androidthings:max72xx-driver:0.0.1'
 }
 ```
 
