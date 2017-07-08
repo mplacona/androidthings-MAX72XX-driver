@@ -1,7 +1,7 @@
 package rocks.androidthings.driver.max72xx
 
-import com.google.android.things.pio.SpiDevice
 import com.google.android.things.pio.PeripheralManagerService
+import com.google.android.things.pio.SpiDevice
 import java.io.IOException
 import kotlin.experimental.and
 import kotlin.experimental.inv

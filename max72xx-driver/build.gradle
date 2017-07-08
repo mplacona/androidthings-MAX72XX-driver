@@ -41,21 +41,21 @@ task createTestResources << {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta2'
-    testImplementation 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:26.0.0-beta2'
+    testCompile 'junit:junit:4.12'
 
-    testImplementation 'com.google.android.things:androidthings:0.4.1-devpreview'
-    compileOnly 'com.google.android.things:androidthings:0.4.1-devpreview'
+    testCompile 'com.google.android.things:androidthings:0.4.1-devpreview'
+    provided 'com.google.android.things:androidthings:0.4.1-devpreview'
 
-    testImplementation 'junit:junit:4.12'
-    testImplementation "org.mockito:mockito-core:2.8.9"
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:2.8.9"
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
 repositories {
     jcenter()

@@ -3,7 +3,6 @@ import com.google.android.things.pio.SpiDevice
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import org.mockito.ArgumentMatchers
 import org.mockito.ArgumentMatchers.anyInt
 import org.mockito.Mockito.*
 
